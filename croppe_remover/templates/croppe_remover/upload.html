@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'croppe_remover/css/style.css' %}">
+  <title>Image Editor</title>
+</head>
+<body>
+  <form method="POST">
+    {% csrf_token %}
+    <h1>Upload your image here.</h1>
+    <input type="file" id="image-input" accept="image/*">
+
+    <h1>Preview your uploaded image.</h1>
+    <img src="#" alt="Image Preview" id="image-preview" style="display: none;">
+
+    <button type='button' id="crop_btn">Crop</button>
+    <button type='button' id="remove_btn">Remove Background</button>
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="{% static 'croppe_remover/js/image_action.js' %}"></script>
+
+</body>
+</html>

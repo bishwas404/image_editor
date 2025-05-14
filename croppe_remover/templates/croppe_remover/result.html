@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cropped Image Result</title>
+</head>
+<body>
+    <h1>Here is your cropped image:</h1>
+
+    {% if image %}
+        <img src="{{ image.image.url }}" alt="Image">
+    {% else %}
+        <p>No image found!</p>
+    {% endif %}
+
+    <a href="{% url 'download_image' image.id image.unique_id %}" download>Download image</a>
+</body>
+</html>

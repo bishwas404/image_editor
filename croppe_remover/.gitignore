@@ -1,0 +1,50 @@
+# Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+*.env
+
+# Django stuff:
+*.log
+*.pot
+*.py[cod]
+__pycache__
+db.sqlite3  # Ignore SQLite database file if used
+*.sqlite3
+
+# Media files
+/media/
+
+# Static files
+/static/
+
+# Local settings
+local_settings.py
+
+# Django secret key
+.secret_key/
+
+# IDEs
+.idea/
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Coverage reports
+.coverage
+nosetests.xml
+coverage.xml
+*.cover
+
+# Temporary files
+*.bak
+*.swp
