@@ -1,4 +1,4 @@
-{% load static %}
+{% comment %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,5 +25,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
     <script src="{% static 'croppe_remover/js/image_action.js' %}"></script>
 
+</body>
+</html> {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Editor</title>
+
+  <!-- CropperJS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'croppe_remover/css/style.css' %}">
+</head>
+<body>
+  <div class="container">
+    <form method="POST">
+      {% csrf_token %}
+
+      <h1 class="title">Upload Image</h1>
+
+      <label for="image-input" class="upload-label">Choose an image</label>
+      <input type="file" id="image-input" accept="image/*">
+
+      <div class="preview-section">
+        <h2>Preview</h2>
+        <img src="#" alt="Image Preview" id="image-preview" style="display: none;">
+      </div>
+
+      <div class="button-group">
+        <button type="button" id="crop_btn" class="action-btn">Crop</button>
+        <button type="button" id="remove_btn" class="action-btn remove">Remove Background</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+  <script src="{% static 'croppe_remover/js/image_action.js' %}"></script>
 </body>
 </html>

@@ -1,19 +1,27 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cropped Image Result</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cropped Image Result</title>
+  <link rel="stylesheet" href="{% static 'croppe_remover/css/style.css' %}">
 </head>
 <body>
-    <h1>Here is your cropped image:</h1>
+  <div class="container result-container">
+    <h1 class="title">Your Edited Image</h1>
 
     {% if image %}
-        <img src="{{ image.image.url }}" alt="Image">
+      <div class="result-image-wrapper">
+        <img src="{{ image.image.url }}" alt="Cropped Image" class="result-image">
+        <a href="{% url 'download_image' image.id image.unique_id %}" class="action-btn download-btn" download>
+          Download Image
+        </a>
+      </div>
     {% else %}
-        <p>No image found!</p>
+      <p class="no-image">No image found!</p>
     {% endif %}
-
-    <a href="{% url 'download_image' image.id image.unique_id %}" download>Download image</a>
+  </div>
 </body>
 </html>
+
