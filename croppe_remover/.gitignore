@@ -17,11 +17,11 @@ __pycache__
 db.sqlite3  # Ignore SQLite database file if used
 *.sqlite3
 
-# Media files
-/media/
+# Media files (uploaded files)
+media/
 
-# Static files
-/static/
+# Static files (collected static files for production)
+static/
 
 # Local settings
 local_settings.py
